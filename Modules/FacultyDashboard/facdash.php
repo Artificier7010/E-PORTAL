@@ -117,12 +117,12 @@ if(isset($_POST['date']))
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <style>
          /* Google Font Link */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+         @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;700;800;900&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins" , sans-serif;
+  font-family: "Raleway";
 }
 .sidebar{
   position: fixed;
@@ -130,10 +130,11 @@ if(isset($_POST['date']))
   top: 0;
   height: 100%;
   width: 78px;
-  background: #11101D;
+  background: rgb(255 180 127);
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
+  border-right: 3px solid black;
 }
 .sidebar.open{
   width: 250px;
@@ -144,7 +145,7 @@ if(isset($_POST['date']))
   align-items: center;
   position: relative;
 }
-.sidebar .logo-details .icon{
+.sidebar .logo-details img{
   opacity: 0;
   transition: all 0.5s ease;
 }
@@ -152,10 +153,11 @@ if(isset($_POST['date']))
   color: #fff;
   font-size: 20px;
   font-weight: 600;
+  margin-left: 15px;
   opacity: 0;
   transition: all 0.5s ease;
 }
-.sidebar.open .logo-details .icon,
+.sidebar.open .logo-details img,
 .sidebar.open .logo-details .logo_name{
   opacity: 1;
 }
@@ -259,13 +261,14 @@ if(isset($_POST['date']))
   align-items: center;
   text-decoration: none;
   transition: all 0.4s ease;
-  background: #11101D;
+  background: #ffe2c4;
 }
 .sidebar li a:hover{
-  background: #FFF;
+  background: whitesmoke;
 }
 .sidebar li a .links_name{
-  color: #fff;
+  color: black;
+  font-weight: 900;
   font-size: 15px;
   font-weight: 400;
   white-space: nowrap;
@@ -285,6 +288,7 @@ if(isset($_POST['date']))
 .sidebar li i{
   height: 50px;
   line-height: 50px;
+  color: #111;
   font-size: 18px;
   border-radius: 12px;
 }
@@ -713,6 +717,10 @@ form .input-box span.details{
     -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
 }
+#wislogo{
+  width: 40px;
+  height: 40px;
+}
 
 @-webkit-keyframes fadein {
     from {bottom: 0; opacity: 0;} 
@@ -806,17 +814,11 @@ form .user-details .input-box{
 
   <div class="sidebar">
     <div class="logo-details">
-      <i class='bx bxl-c-plus-plus icon'></i>
-        <div class="logo_name">WISCORE</div>
+    <img src="../../Assets/darkbglogo.png" alt="" id="wislogo">
+        <div class="logo_name">Wiscore</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
-     
-      <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Search...">
-         <span class="tooltip">Search</span>
-      </li>
       <li>
         <a id="dash" href="#">
           <i class='bx bx-grid-alt'></i>
@@ -1020,7 +1022,6 @@ form .user-details .input-box{
               echo '<td>'.$row1["lastname"].'</td>';
               echo '<td>'.$row1["mobileno"].'</td>';
               echo '<td>'.$row1["score"].'</td>';
-          
             }
             
             
