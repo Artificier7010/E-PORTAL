@@ -1107,11 +1107,6 @@ form .user-details .input-box{
     menuBtnChange();//calling the function(optional)
   });
 
-  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-    sidebar.classList.toggle("open");
-    menuBtnChange(); //calling the function(optional)
-  });
-
   // following are the code to change sidebar button(optional)
   function menuBtnChange() {
    if(sidebar.classList.contains("open")){
@@ -1123,7 +1118,7 @@ form .user-details .input-box{
 
   </script>
 
-  <script src="jquery-3.6.0.js"></script>
+  <script src="../../jquery-3.6.0.js"></script>
   <script>
     $(document).ready(function(){
 
