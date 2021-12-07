@@ -383,7 +383,7 @@ would be placed ahead of the other menu icons with*/
 
         .card-btn {
             all: unset;
-            display: block;
+            display: inline-block;
             margin-left: auto;
             border: 2px solid black;
             padding: 10px 15px;
@@ -526,7 +526,7 @@ would be placed ahead of the other menu icons with*/
 
         .about-page .modal {
             width: 65%;
-            height: 50%;
+            height: auto;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -540,7 +540,7 @@ would be placed ahead of the other menu icons with*/
 
         .contact-page .modal {
             width: 65%;
-            height: 50%;
+            height: auto;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -597,8 +597,8 @@ would be placed ahead of the other menu icons with*/
             background: #ffb47f;
             outline: none;
             right: -99px;
-            width: 200px;
-            height: 200px;
+            width: clamp(150px, 45vw, 200px);
+            height:  clamp(150px, 45vw, 200px);
             border-radius: 50%;
             border: none;
             transition: 0.5s;
@@ -615,7 +615,7 @@ would be placed ahead of the other menu icons with*/
             top: 47px;
             left: -50px;
             font-weight: 900;
-            font-size: 31px;
+            font-size: clamp(20px, 5vw, 32px);
             color: white;
         }
     </style>
@@ -643,7 +643,7 @@ would be placed ahead of the other menu icons with*/
     <body>
         <input type="checkbox" id="home-btn" checked>
         <input type="checkbox" id="student-btn">
-        <input type="checkbox" id="faculty-btn" >
+        <input type="checkbox" id="faculty-btn">
         <div class="container">
 
             <section class="home-page">
@@ -698,21 +698,21 @@ would be placed ahead of the other menu icons with*/
                                 <br>
                                 <p class="card-content">How many questions per page should the test have? Would you allow test takers to go back to previous questions?...</p>
                                 <br>
-                                <button class="card-btn">READ MORE</button>
+                                <a href="./Modules/AboutPage/about.php" class="card-btn">READ MORE</a>
                             </div>
                             <div data-aos-anchor="#midcont" data-aos-duration="1600" data-aos-easing="ease-in-quad" data-aos="flip-left" class="card">
                                 <h3 class="card-title">Test Authoring</h3>
                                 <br>
                                 <p class="card-content">Online tests can come in different forms. You can administer multiple-choice, enumeration, true or false, essay, matching, and other types of online tests...</p>
                                 <br>
-                                <button class="card-btn">READ MORE</button>
+                                <a href="./Modules/AboutPage/about.php" class="card-btn">READ MORE</a>
                             </div>
                             <div data-aos-anchor="#midcont" data-aos-duration="1700" data-aos-easing="ease-in-quad" data-aos="flip-left" class="card">
                                 <h3 class="card-title">User Management</h3>
                                 <br>
                                 <p class="card-content">User profiles offer bits of information that can help students and teachers. This is why user management is a basic online exam portal feature...</p>
                                 <br>
-                                <button class="card-btn">READ MORE</button>
+                                <a href="./Modules/AboutPage/about.php" class="card-btn">READ MORE</a>
                             </div>
                         </div>
                     </div>
