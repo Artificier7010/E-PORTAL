@@ -135,6 +135,7 @@ if (isset($_POST['date'])) {
 
     html {
       height: auto;
+      width: 100vw;
     }
 
     .sidebar {
