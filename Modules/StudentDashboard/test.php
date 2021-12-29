@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(isset($_SESSION['sessnid'])==false){
+if (isset($_SESSION['sessnid']) == false) {
   echo '<script type="text/JavaScript"> 
             window.location="../../index.php";
             alert("login failed");
@@ -12,405 +12,258 @@ if(isset($_SESSION['sessnid'])==false){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <title>Document</title>
-    <style>
-      @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-}
-  
-  body{
-    width: 100%;
-    height: 100vh;
-    background: url('testbg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow: hidden;
-  }
-  .main{
-    justify-items: center;
-  }
-  div{
-    position: relative;
-    margin-top: 40px;
-  }
-  .outlined{
-    border: 2px solid #141316;
-  }
-  .rounded{
-    border-radius: 50px;
-  }
-  .anchor, .button{
-    position: relative;
-    padding: calc(.5em - 2px) 1em;
-    height: 2.5em;
-    font-size: 3rem;
-    color: #141316;
-  }
-  .anchor{
-    text-decoration: none;
-  }
-  .button{
-    overflow: hidden;
-    cursor: pointer;
-    background-color: transparent;
-  }
-  .button:hover, .anchor:hover{
-    background-color: #141316;
-    color: #ffffff;
-  }
-.item-sparkle-wrapper{
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: transparent;
-  border-radius: 50px;
-  overflow: hidden;
-  z-index: 1;
-}
-.section-marker:hover > .item-sparkle-wrapper > .item-sparkle, .item-sparkle-wrapper:hover > .item-sparkle{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  width: 5px;
-  background-color: white;
-  z-index: 2;
-  transform: skewX(-15deg);
-  animation: shine-by .3s 0s ease-in-out forwards;
-}
-.cent{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-#mycanvas{
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -2;
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
 
-}
+    * {
+      margin: 0;
+      padding: 0;
+      outline: none;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-@keyframes shine-by {
-  0%{
-    left: 0px;
-  }
-  100%{
-    left: 110%;
-  }
-}
+    body {
+      width: 100%;
+      height: 100vh;
+      background: whitesmoke;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      overflow: hidden;
+    }
 
 
-nav{
-  background: #171c24;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  height: 70px;
-  padding: 0 100px;
-}
-nav .logo{
-  color: #fff;
-  font-size: 30px;
-  font-weight: 600;
-  letter-spacing: -1px;
-  margin: 0;
-}
-nav .nav-items{
-  display: flex;
-  flex: 1;
-  padding: 0 0 0 40px;
-  margin: 0;
-}
-nav .nav-items li{
-  list-style: none;
-  padding: 0 15px;
-}
-nav .nav-items li a{
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  text-decoration: none;
-}
-nav .nav-items li a:hover{
-  color: #ff3d00;
-}
-nav form{
-  display: flex;
-  height: 40px;
-  padding: 2px;
-  background: #1e232b;
-  min-width: 18%!important;
-  border-radius: 2px;
-  border: 1px solid rgba(155,155,155,0.2);
-}
-nav form .search-data{
-  width: 100%;
-  height: 100%;
-  padding: 0 10px;
-  color: #fff;
-  font-size: 17px;
-  border: none;
-  font-weight: 500;
-  background: none;
-}
-nav form button{
-  padding: 0 15px;
-  color: #fff;
-  font-size: 17px;
-  background: #ff3d00;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-}
-nav form button:hover{
-  background: #e63600;
-}
-nav .menu-icon,
-nav .cancel-icon,
-nav .search-icon{
-  width: 40px;
-  text-align: center;
-  margin: 0 50px;
-  font-size: 18px;
-  color: #fff;
-  cursor: pointer;
-  display: none;
-}
-nav .menu-icon span,
-nav .cancel-icon,
-nav .search-icon{
-  display: none;
-}
-@media (max-width: 1245px) {
-  nav{
-    padding: 0 50px;
-  }
-}
-@media (max-width: 1140px){
-  nav{
-    padding: 0px;
-  }
-  nav .logo{
-    flex: 2;
-    text-align: center;
-  }
-  nav .nav-items{
-    position: fixed;
-    z-index: 99;
-    top: 70px;
-    width: 100%;
-    left: -100%;
-    height: 100%;
-    padding: 10px 50px 0 50px;
-    text-align: center;
-    background: #14181f;
-    display: inline-block;
-    transition: left 0.3s ease;
-  }
-  nav .nav-items.active{
-    left: 0px;
-  }
-  nav .nav-items li{
-    line-height: 40px;
-    margin: 30px 0;
-  }
-  nav .nav-items li a{
-    font-size: 20px;
-  }
-  nav form{
-    position: absolute;
-    top: 80px;
-    right: 50px;
-    opacity: 0;
-    pointer-events: none;
-    transition: top 0.3s ease, opacity 0.1s ease;
-  }
-  nav form.active{
-    top: 95px;
-    opacity: 1;
-    pointer-events: auto;
-  }
-  nav form:before{
-    position: absolute;
-    content: "";
-    top: -13px;
-    right: 0px;
-    width: 0;
-    height: 0;
-    z-index: -1;
-    border: 10px solid transparent;
-    border-bottom-color: #1e232b;
-    margin: -20px 0 0;
-  }
-  nav form:after{
-    position: absolute;
-    content: '';
-    height: 60px;
-    padding: 2px;
-    background: #1e232b;
-    border-radius: 2px;
-    min-width: calc(100% + 20px);
-    z-index: -2;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-  nav .menu-icon{
-    display: block;
-  }
-  nav .search-icon,
-  nav .menu-icon span{
-    display: block;
-  }
-  nav .menu-icon span.hide,
-  nav .search-icon.hide{
-    display: none;
-  }
-  nav .cancel-icon.show{
-    display: block;
-  }
-}
-.content{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  text-align: center;
-  transform: translate(-50%, -50%);
-}
-.content header{
-  font-size: 30px;
-  font-weight: 700;
-}
-.content .text{
-  font-size: 30px;
-  font-weight: 700;
-}
-.space{
-  margin: 10px 0;
-}
-nav .logo.space{
-  color: red;
-  padding: 0 5px 0 0;
-}
-@media (max-width: 980px){
-  nav .menu-icon,
-  nav .cancel-icon,
-  nav .search-icon{
-    margin: 0 20px;
-  }
-  nav form{
-    right: 30px;
-  }
-}
-@media (max-width: 350px){
-  nav .menu-icon,
-  nav .cancel-icon,
-  nav .search-icon{
-    margin: 0 10px;
-    font-size: 16px;
-  }
-}
-.content{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.content header{
-  font-size: 30px;
-  font-weight: 700;
-}
-.content .text{
-  font-size: 30px;
-  font-weight: 700;
-}
-.content .space{
-  margin: 10px 0;
-}
-</style>
+    .containe {
+      width: 100%;
+      height: 100%;
+      max-width: 1535px;
+      overflow: auto;
+    }
+
+    .head-cont {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-txt {
+      width: 150px;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-txt img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .logo-txt h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0px;
+      margin-left: 10px;
+    }
+
+    .hrr {
+      border: 1px solid rgb(0, 0, 0);
+      opacity: 1;
+    }
+
+
+    /* Card styling */
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      max-width: 300px;
+      min-height: 250px;
+      background: #fff;
+      padding: 30px;
+      box-sizing: border-box;
+      color: black;
+      margin: 20px;
+      box-shadow: 0px 2px 18px -4px rgba(0, 0, 0, 0.75);
+    }
+
+    .card:nth-child(2) {
+      background: #FFF;
+    }
+
+    .card:last-child {
+      background: #FFF;
+    }
+
+    .card-title {
+      margin-top: 0;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      color: #ffb47f;
+    }
+
+    .card-content {
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .card-btn {
+      all: unset;
+      display: inline-block;
+     text-align: center;
+      border: 2px solid black;
+      padding: 10px 15px;
+      border-radius: 25px;
+      font-size: 10px;
+      font-weight: 600;
+      transition: all 0.5s;
+      cursor: pointer;
+      letter-spacing: 1.2px;
+    }
+
+    .card-btn:hover {
+      color: black;
+      background: #FFF;
+    }
+
+    .card:nth-child(2) .card-btn:hover {
+      color: black;
+      background: #FFF;
+    }
+
+    .card:last-child .card-btn:hover {
+      color: black;
+      background: #FFF;
+    }
+  </style>
 
 </head>
-<body>
-<nav>
-         <div class="menu-icon">
-            <span class="fas fa-bars"></span>
-         </div>
-         <div class="logo">
-            Dashboard
-         </div>
-         <div class="nav-items">
-            <li><a href="">Home</a></li>
-            <li><a href="preresults.php">Previous Results</a></li>
-            <li><a href="stuexamview.php">My Exams</a></li>
-            <li><a href="logout.php">Logout</a></li>
-            
-         </div>
-         <div class="search-icon">
-            <span class="fas fa-search"></span>
-         </div>
-         <div class="cancel-icon">
-            <span class="fas fa-times"></span>
-         </div>
-         <form action="#">
-            <input type="search" class="search-data" placeholder="Search" required>
-            <button type="submit" class="fas fa-search"></button>
-         </form>
-      </nav>
-     
-      
-    <div class="cent">
-        <a href="examportal.php" class="anchor rounded outlined section-marker">
-          <span class="item-sparkle-wrapper">
-            <span class="item-sparkle"></span>
-          </span>
-          <span> Start Exam </span>
-        </a>
-    </div>
 
-    <script>
-         const menuBtn = document.querySelector(".menu-icon span");
-         const searchBtn = document.querySelector(".search-icon");
-         const cancelBtn = document.querySelector(".cancel-icon");
-         const items = document.querySelector(".nav-items");
-         const form = document.querySelector("form");
-         menuBtn.onclick = ()=>{
-           items.classList.add("active");
-           menuBtn.classList.add("hide");
-           searchBtn.classList.add("hide");
-           cancelBtn.classList.add("show");
-         }
-         cancelBtn.onclick = ()=>{
-           items.classList.remove("active");
-           menuBtn.classList.remove("hide");
-           searchBtn.classList.remove("hide");
-           cancelBtn.classList.remove("show");
-           form.classList.remove("active");
-           cancelBtn.style.color = "#ff3d00";
-         }
-         searchBtn.onclick = ()=>{
-           form.classList.add("active");
-           searchBtn.classList.add("hide");
-           cancelBtn.classList.add("show");
-         }
-      </script>
+<body>
+  <div class="containe">
+    <div class="head-cont">
+      <div class="logo-txt">
+        <img src="../../Assets/lightbglogo.png" alt="">
+        <h1>Wiscore</h1>
+      </div>
+
+    </div>
+    <hr size="2px" class="hrr" color="rgb(255 180 127)">
+    
+    <br>
+    <div id="midcont" class="midcont">
+      <center>
+        <h1>Student Dashboard</h1>
+      </center>
+      <!-- <hr> -->
+      <br>
+    <br>
+      <div class="wrapper">
+        <div data-aos-anchor="#midcont" data-aos-duration="1500" data-aos-easing="ease-in-quad" data-aos="flip-left" class="card">
+          <h3 class="card-title">Home</h3>
+          <br>
+          <p class="card-content">A home page is a webpage that serves as the starting point of website.</p>
+          <br>
+          <a href="" class="card-btn">CLICK HERE</a>
+        </div>
+        <div data-aos-anchor="#midcont" data-aos-duration="1600" data-aos-easing="ease-in-quad" data-aos="flip-left" class="card">
+          <h3 class="card-title">Previous Results</h3>
+          <br>
+          <p class="card-content">Here you can check your previos results</p>
+          <br>
+          <a href="preresults.php" class="card-btn">CLICK HERE</a>
+        </div>
+        <div data-aos-anchor="#midcont" data-aos-duration="1700" data-aos-easing="ease-in-quad" data-aos="flip-left" class="card">
+          <h3 class="card-title">My Exams</h3>
+          <br>
+          <p class="card-content">Here your exam schedule. Click it and give your exam </p>
+          <br>
+          <a href="stuexamview.php" class="card-btn">CLICK HERE</a>
+        </div>
+        <div data-aos-anchor="#midcont" data-aos-duration="1700" data-aos-easing="ease-in-quad" data-aos="flip-left" class="card">
+          <h3 class="card-title">Logout</h3>
+          <br>
+          <p class="card-content">If you are finished your exam then click below for logout</p>
+          <br>
+          <a href="logout.php" class="card-btn">CLICK HERE</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <nav>
+    <div class="menu-icon">
+      <span class="fas fa-bars"></span>
+    </div>
+    <div class="logo-txt">
+      <img src="../../Assets/lightbglogo.png" alt="">
+      <h1>Wiscore</h1>
+    </div>
+   
+    <div class="nav-items">
+      <li><a href="">Home</a></li>
+      <li><a href="preresults.php">Previous Results</a></li>
+      <li><a href="stuexamview.php">My Exams</a></li>
+      <li><a href="logout.php">Logout</a></li>
+
+    </div>
+   
+    
+  </nav> -->
+
+
+  <!-- <div class="cent">
+    <a href="examportal.php" class="anchor rounded outlined section-marker">
+      <span class="item-sparkle-wrapper">
+        <span class="item-sparkle"></span>
+      </span>
+      <span> Start Exam </span>
+    </a>
+  </div> -->
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script>
+    const menuBtn = document.querySelector(".menu-icon span");
+    const searchBtn = document.querySelector(".search-icon");
+    const cancelBtn = document.querySelector(".cancel-icon");
+    const items = document.querySelector(".nav-items");
+    const form = document.querySelector("form");
+    menuBtn.onclick = () => {
+      items.classList.add("active");
+      menuBtn.classList.add("hide");
+      searchBtn.classList.add("hide");
+      cancelBtn.classList.add("show");
+    }
+    cancelBtn.onclick = () => {
+      items.classList.remove("active");
+      menuBtn.classList.remove("hide");
+      searchBtn.classList.remove("hide");
+      cancelBtn.classList.remove("show");
+      form.classList.remove("active");
+      cancelBtn.style.color = "#ff3d00";
+    }
+    searchBtn.onclick = () => {
+      form.classList.add("active");
+      searchBtn.classList.add("hide");
+      cancelBtn.classList.add("show");
+    }
+  </script>
 
 </body>
 
