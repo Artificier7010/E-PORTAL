@@ -839,9 +839,7 @@ if (isset($_POST['date'])) {
     }
 
     /* Attendence Status */
-    .attstatus{
-
-    }
+    .attstatus {}
 
     @-webkit-keyframes fadein {
       from {
@@ -1168,6 +1166,10 @@ if (isset($_POST['date'])) {
 
     <div class="addcat">
       <div class="container">
+        <h1>User Attendence</h1>
+        <hr>
+        <br>
+        <br>
         <table>
 
           <thead>
@@ -1199,7 +1201,7 @@ if (isset($_POST['date'])) {
 
 
                 echo "</tr>";
-              } else{
+              } else {
                 echo "<h1>No Users Checked In Yet</h1>";
               }
             }
@@ -1214,53 +1216,56 @@ if (isset($_POST['date'])) {
     <!-- User Details -->
     <!-- ************************* -->
     <div class="userdetail">
-      <br>
-      <div class="three">
+      <div class="container">
         <h1>User Details</h1>
+        <hr>
+        <br>
+        <table id="customers">
+          <thead>
+            <th>Id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>User ID</th>
+            <th>Branch</th>
+            <th>Semester</th>
+            <th>Mobile No.</th>
+            <th>Action</th>
+          </thead>
+          <tbody>
+
+            <?php
+            $sno = 1;
+            while ($userrow = mysqli_fetch_array($anss)) {
+              // echo '<script type="text/javascript">
+              // window.location="dash.php";
+              // </script>';
+              if ($userrow) {
+
+
+
+                echo "<tr>";
+                echo '<td data-label="Id">' . $sno . '</td>';
+                echo '<td data-label="Firstname">' . $userrow["firstname"] . '</td>';
+                echo '<td data-label="Lastname">' . $userrow["lastname"] . '</td>';
+                echo '<td data-label="User ID">' . $userrow["id"] . '</td>';
+                echo '<td data-label="Branch">' . $userrow["branch"] . '</td>';
+                echo '<td data-label="Semester">' . $userrow["semester"] . '</td>';
+                echo '<td data-label="Mobile No.">' . $userrow["mobileno"] . '</td>';
+                echo '<td data-label="Action"><button class="button button3 x">Delete</button></td>';
+
+
+                echo "</tr>";
+                $sno++;
+              } else if ($userrow['id'] == NULL) {
+                echo "<tr>";
+                echo '<td colspan="8" style="text-align:center;">No Users</td>';
+                echo "</tr>";
+              }
+            }
+            ?>
+          </tbody>
+        </table>
       </div>
-      <br>
-      <table id="customers">
-        <tr>
-          <th>Id</th>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>User ID</th>
-          <th>Branch</th>
-          <th>Semester</th>
-          <th>Mobile No.</th>
-          <th>Action</th>
-        </tr>
-        <?php
-        $sno = 1;
-        while ($userrow = mysqli_fetch_array($anss)) {
-          // echo '<script type="text/javascript">
-          // window.location="dash.php";
-          // </script>';
-          if ($userrow) {
-
-
-
-            echo "<tr>";
-            echo '<td>' . $sno . '</td>';
-            echo '<td>' . $userrow["firstname"] . '</td>';
-            echo '<td>' . $userrow["lastname"] . '</td>';
-            echo '<td>' . $userrow["id"] . '</td>';
-            echo '<td>' . $userrow["branch"] . '</td>';
-            echo '<td>' . $userrow["semester"] . '</td>';
-            echo '<td>' . $userrow["mobileno"] . '</td>';
-            echo '<td><button class="button button3 x">Delete</button></td>';
-
-
-            echo "</tr>";
-            $sno++;
-          } else if ($userrow['id'] == NULL) {
-            echo "<tr>";
-            echo '<td colspan="8" style="text-align:center;">No Users</td>';
-            echo "</tr>";
-          }
-        }
-        ?>
-      </table>
     </div>
 
 
@@ -1268,34 +1273,38 @@ if (isset($_POST['date'])) {
     <!-- *********************************************************** -->
 
     <div class="userresult">
-      <br>
-      <div class="three">
-        <h1>Results</h1>
-      </div>
-      <br>
-      <table id="customers">
-        <tr>
-          <th>Id</th>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>User ID</th>
-          <th>Score</th>
+      <div class="container">
+        <h1>Result</h1>
+        <hr>
+        <br>
+        <table id="customers">
+          <thead>
+            <th>Id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>User ID</th>
+            <th>Score</th>
+          </thead>
 
-        </tr>
-        <?php
-        $sno = 1;
-        while ($row1 = mysqli_fetch_array($reslt)) {
-          if ($row1) {
-            echo "<tr>";
-            echo '<td>' . $sno . '</td>';
-            echo '<td>' . $row1["firstname"] . '</td>';
-            echo '<td>' . $row1["lastname"] . '</td>';
-            echo '<td>' . $row1["mobileno"] . '</td>';
-            echo '<td>' . $row1["score"] . '</td>';
-          }
-        }
-        ?>
-      </table>
+          </tr>
+          <tbody>
+            <?php
+            $sno = 1;
+            while ($row1 = mysqli_fetch_array($reslt)) {
+              if ($row1) {
+                echo "<tr>";
+                echo '<td data-label="Id">' . $sno . '</td>';
+                echo '<td data-label="Firstname">' . $row1["firstname"] . '</td>';
+                echo '<td data-label="Lastname">' . $row1["lastname"] . '</td>';
+                echo '<td data-label="User ID">' . $row1["mobileno"] . '</td>';
+                echo '<td data-label="Score">' . $row1["score"] . '</td>';
+              }
+            }
+            ?>
+
+          </tbody>
+        </table>
+      </div>
     </div>
 
 
