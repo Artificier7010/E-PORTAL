@@ -1059,7 +1059,7 @@ would be placed ahead of the other menu icons with*/
         $sql2 = "SELECT * FROM adminregist WHERE
         mobileno='$usernm' and passwrd='$passwrd'";
 
-        $rs = mysqli_query($connect, $sql2);
+        echo $rs = mysqli_query($connect, $sql2);
 
         if ($row = mysqli_fetch_array($rs)) {
 
@@ -1111,7 +1111,7 @@ would be placed ahead of the other menu icons with*/
             $_SESSION['usertoken'] = $token;
 
             //session ka kaam
-            $se = "INSERT INTO sessntab VALUES(
+            $sessn = "INSERT INTO sessntab VALUES(
         NULL,'$stuusrname','$token'
       )";
             $rssessn = mysqli_query($conn, $sessn);
@@ -1128,8 +1128,13 @@ would be placed ahead of the other menu icons with*/
           window.location="Modules/StudentDashboard/test.php";
            </script>';
                 }
+            }else{
+                echo '<script type="text/javascript">
+                window.location="Modules/FacultyDashboard/facdash.php";
+                 </script>';
             }
         } else {
+           
         }
 
         mysqli_close($conn);

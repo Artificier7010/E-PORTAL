@@ -1087,6 +1087,66 @@ if (isset($_POST['date'])) {
 
     <div class="addcat">
       <div class="container">
+      <table>
+  
+  <thead>
+    <th>name</th>
+    <th>war</th>
+    <th>ba</th>
+    <th>obp</th>
+    <th>slg</th>
+    <th>ops</th>
+    <th>rbi</th>
+    <th>hr</th>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td data-label="name">Ken Griffey Jr.</td>
+      <td data-label="war">83.8</td>
+      <td data-label="ba">.284</td>
+      <td data-label="obp">.370</td>
+      <td data-label="slg">.583</td>
+      <td data-label="ops">.907</td>
+      <td data-label="rbi">1836</td>
+      <td data-label="hr">630</td>
+    </tr>
+      
+      <tr>
+      <td data-label="name">Derek Jeter</td>
+      <td data-label="war">71.3</td>
+      <td data-label="ba">.310</td>
+      <td data-label="obp">.377</td>
+      <td data-label="slg">.440</td>
+      <td data-label="ops">.817</td>
+      <td data-label="rbi">1311</td>
+      <td data-label="hr">260</td>
+    </tr>
+      
+      <tr>
+      <td data-label="name">Cal Ripken Jr.</td>
+      <td data-label="war">95.9</td>
+      <td data-label="ba">.276</td>
+      <td data-label="obp">.340</td>
+      <td data-label="slg">.447</td>
+      <td data-label="ops">.788</td>
+      <td data-label="rbi">1695</td>
+      <td data-label="hr">431</td>
+    </tr>
+      
+      <tr>
+      <td data-label="name">Darryl Strawberry</td>
+      <td data-label="war">42.2</td>
+      <td data-label="ba">.259</td>
+      <td data-label="obp">.357</td>
+      <td data-label="slg">.505</td>
+      <td data-label="ops">.862</td>
+      <td data-label="rbi">1000</td>
+      <td data-label="hr">335</td>
+    </tr>
+  </tbody>
+  
+</table>
 
       </div>
     </div>
