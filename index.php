@@ -1111,7 +1111,7 @@ would be placed ahead of the other menu icons with*/
             $_SESSION['usertoken'] = $token;
 
             //session ka kaam
-            $sessn = "INSERT INTO sessntab VALUES(
+            $se = "INSERT INTO sessntab VALUES(
         NULL,'$stuusrname','$token'
       )";
             $rssessn = mysqli_query($conn, $sessn);
