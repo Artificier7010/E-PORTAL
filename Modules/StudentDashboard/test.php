@@ -22,14 +22,14 @@ if (isset($_SESSION['sessnid']) == false) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <title>Document</title>
   <style>
-    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;700;800;900&display=swap');
 
     * {
       margin: 0;
       padding: 0;
       outline: none;
       box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Raleway";
     }
 
     body {
@@ -54,8 +54,10 @@ if (isset($_SESSION['sessnid']) == false) {
       width: 100%;
       height: auto;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+
+
     }
 
     .logo-txt {
@@ -64,6 +66,7 @@ if (isset($_SESSION['sessnid']) == false) {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-left: 5%;
     }
 
     .logo-txt img {
@@ -75,11 +78,27 @@ if (isset($_SESSION['sessnid']) == false) {
       font-size: 1.8rem;
       margin-bottom: 0px;
       margin-left: 10px;
+      font-weight: bold;
+    }
+
+    .head-cont .btnlogout {
+      outline: none;
+      border: none;
+      margin-right: 5%;
+      background: transparent;
+      text-decoration: none;
+      color: black;
+    }
+
+    .head-cont .fas {
+      font-size: 1.8rem;
+
     }
 
     .hrr {
       border: 1px solid rgb(0, 0, 0);
       opacity: 1;
+      margin: 0;
     }
 
 
@@ -93,6 +112,8 @@ if (isset($_SESSION['sessnid']) == false) {
     .card {
       max-width: 300px;
       min-height: 250px;
+      width: 300px;
+
       background: #fff;
       padding: 30px;
       box-sizing: border-box;
@@ -127,7 +148,7 @@ if (isset($_SESSION['sessnid']) == false) {
     .card-btn {
       all: unset;
       display: inline-block;
-     text-align: center;
+      text-align: center;
       border: 2px solid black;
       padding: 10px 15px;
       border-radius: 25px;
@@ -152,6 +173,37 @@ if (isset($_SESSION['sessnid']) == false) {
       color: black;
       background: #FFF;
     }
+
+    .stuhead {
+      margin-left: 10%;
+      font-weight: bold;
+    }
+
+    .stuicons {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: rgb(255 180 127);
+
+    }
+
+    .stuicons i {
+      width: 100%;
+      height: 100%;
+      font-size: 10rem;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stuicons h4 {
+      color: rgb(255 180 127);
+    }
   </style>
 
 </head>
@@ -163,47 +215,43 @@ if (isset($_SESSION['sessnid']) == false) {
         <img src="../../Assets/lightbglogo.png" alt="">
         <h1>Wiscore</h1>
       </div>
-
+      <a href="./../../logout.php" class="btnlogout"><i class="fas fa-sign-out-alt"></i> </a>
     </div>
     <hr size="2px" class="hrr" color="rgb(255 180 127)">
-    
+
     <br>
     <div id="midcont" class="midcont">
-      <center>
-        <h1>Student Dashboard</h1>
-      </center>
+
+      <h3 class="stuhead">Student Dashboard</h3>
+
       <!-- <hr> -->
       <br>
-    <br>
+      <br>
       <div class="wrapper">
         <div data-aos-anchor="#midcont" data-aos-duration="1500" data-aos-easing="ease-in-quad" data-aos="flip-left" class="card">
-          <h3 class="card-title">Home</h3>
-          <br>
-          <p class="card-content">A home page is a webpage that serves as the starting point of website.</p>
-          <br>
-          <a href="" class="card-btn">CLICK HERE</a>
+
+          <a href="" class="stuicons">
+            <i class="fas fa-home"></i>
+            <br>
+            <h4>Home</h4>
+          </a>
         </div>
         <div data-aos-anchor="#midcont" data-aos-duration="1600" data-aos-easing="ease-in-quad" data-aos="flip-left" class="card">
-          <h3 class="card-title">Previous Results</h3>
-          <br>
-          <p class="card-content">Here you can check your previos results</p>
-          <br>
-          <a href="preresults.php" class="card-btn">CLICK HERE</a>
+        <a  href="preresults.php" class="stuicons">
+            <i class="fas fa-poll"></i>
+            <br>
+            <h4>Previous results</h4>
+          </a>
         </div>
         <div data-aos-anchor="#midcont" data-aos-duration="1700" data-aos-easing="ease-in-quad" data-aos="flip-left" class="card">
-          <h3 class="card-title">My Exams</h3>
-          <br>
-          <p class="card-content">Here your exam schedule. Click it and give your exam </p>
-          <br>
-          <a href="stuexamview.php" class="card-btn">CLICK HERE</a>
+
+          <a href="stuexamview.php" class="stuicons">
+          <i class="fas fa-user-edit"></i>
+            <br>
+            <h4>my exam</h4>
+          </a>
         </div>
-        <div data-aos-anchor="#midcont" data-aos-duration="1700" data-aos-easing="ease-in-quad" data-aos="flip-left" class="card">
-          <h3 class="card-title">Logout</h3>
-          <br>
-          <p class="card-content">If you are finished your exam then click below for logout</p>
-          <br>
-          <a href="logout.php" class="card-btn">CLICK HERE</a>
-        </div>
+      
       </div>
     </div>
   </div>
