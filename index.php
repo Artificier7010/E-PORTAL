@@ -1161,6 +1161,12 @@ would be placed ahead of the other menu icons with*/
         $rs = mysqli_query($connect, $sql2);
 
         if ($row = mysqli_fetch_array($rs)) {
+            $facfirname = $row['firstname'];
+            $faclasname = $row['lastname'];
+
+            $_SESSION['facfirname'] = $facfirname;
+            $_SESSION['faclasname'] = $faclasname;
+
             echo '<script type="text/javascript">
           window.location="Modules/FacultyDashboard/facdash.php";
           </script>';

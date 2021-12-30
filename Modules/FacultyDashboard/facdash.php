@@ -1,5 +1,8 @@
 <!-- category insertion  -->
 <?php
+session_start();
+$facultyname = $_SESSION['facfirname'] . $_SESSION['faclasname'];
+
 
 use UI\Controls\Form;
 
@@ -46,10 +49,6 @@ $attdet = mysqli_query($connect, $attsql);
 
 <!-- User result -->
 <!-- ************************** -->
-
-
-
-
 <?php
 
 $sql3 = "SELECT regist.firstname,regist.lastname,regist.mobileno,preresults.score FROM regist,preresults WHERE regist.mobileno=preresults.userid";
@@ -68,6 +67,17 @@ $sql4 = "SELECT * FROM category";
 $categ = mysqli_query($connect, $sql4);
 
 ?>
+
+
+<!-- No. of Users -->
+<?php
+
+$nou = "SELECT COUNT(*) FROM regist";
+$nor = mysqli_query($connect, $nou);
+$rownum= mysqli_fetch_array($nor);
+$total=$rownum[0];
+?>
+
 
 
 
@@ -575,6 +585,7 @@ if (isset($_POST['date'])) {
       height: 100%;
       width: 100%;
       border-radius: 5px;
+      border: 1px solid rgb(255 180 127);
       border: none;
       color: #fff;
       font-size: 18px;
@@ -582,7 +593,7 @@ if (isset($_POST['date'])) {
       letter-spacing: 1px;
       cursor: pointer;
       transition: all 0.3s ease;
-      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+      background:rgb(255 180 127);
     }
 
     form select {
@@ -599,7 +610,7 @@ if (isset($_POST['date'])) {
 
     form .frmbtn input:hover {
       /* transform: scale(0.99); */
-      background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+      background: black;
     }
 
     /* addcat form styling end */
@@ -839,7 +850,6 @@ if (isset($_POST['date'])) {
     }
 
     /* Attendence Status */
-    .attstatus {}
 
     @-webkit-keyframes fadein {
       from {
@@ -1093,11 +1103,11 @@ if (isset($_POST['date'])) {
       <li class="profile">
         <div class="profile-details">
           <div class="name_job">
-            <div class="name">Prem Shahi</div>
-            <div class="job">Web designer</div>
+            <div class="name"><?php echo $facultyname ?></div>
+            <div class="job">Faculty</div>
           </div>
         </div>
-        <i class='bx bx-log-out' id="log_out"></i>
+        <a href="../../logout.php"><i class='bx bx-log-out' id="log_out"></i></a>
       </li>
     </ul>
   </div>
@@ -1112,7 +1122,7 @@ if (isset($_POST['date'])) {
         <div class="row">
           <div class="col">
             <div class="userdetcard">
-              <h3>Users 128</h3>
+              <h3>Users <?php echo $total ?></h3>
               <i class='bx bx-menu'></i>
             </div>
 
@@ -1312,11 +1322,9 @@ if (isset($_POST['date'])) {
     <!-- ************************** -->
 
     <div class="schedule">
-      <button class="addcatclose" id="addcatclose"><i class="fas fa-times"></i></button>
-      <div class="container2">
-        <div class="three">
-          <h1>Schedule</h1>
-        </div>
+      <div class="container">
+       <h1>Schedule Exam</h1>
+       <hr>
         <div class="content">
           <form method="POST">
             <div class="user-details">
