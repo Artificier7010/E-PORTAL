@@ -187,7 +187,7 @@ if(isset($_SESSION['sessnid'])==false){
     .backinner{
             width: 100%;
             height: 100%;
-            background: black;
+            background: #f4f4f4;
             backdrop-filter: blur(50px);
 
     }
@@ -214,7 +214,7 @@ if(isset($_SESSION['sessnid'])==false){
     .bar{
         width: 100%;
         height: 15px;
-        background: linear-gradient(to right, rgb(65, 248, 65),rgb(158, 248, 158),white);
+        background: rgb(255 180 127);
         margin: auto;
         position: absolute;
         top: 41px;
@@ -246,7 +246,7 @@ if(isset($_SESSION['sessnid'])==false){
     .questionbtns button:hover{
         transform: scale(1.2) translateY(20px);
         transition: .5s ease;
-        background: linear-gradient(to right, rgb(65, 248, 65),rgb(158, 248, 158),white);
+        background: rgb(255 180 127);
     }
     .btttn{
         width: 100%;
@@ -257,7 +257,7 @@ if(isset($_SESSION['sessnid'])==false){
     .showquestion{
         height: auto;
         width: 100%;
-        color: white;
+        color: #000000;
         margin-top: 30px;
     } 
     .showquestion .quest{
@@ -323,7 +323,7 @@ if(isset($_SESSION['sessnid'])==false){
     .detail{
         height: 100px;
         width: 100%;
-        color: white;
+        color: #000000;
         position:absolute;
         bottom: 0;
         left: 0;
@@ -362,7 +362,7 @@ if(isset($_SESSION['sessnid'])==false){
     .score .scorebar{
         width: 100%;
         height: 40px;
-        background: rgb(88, 243, 74);
+        background:rgb(255 180 127);
         border-top-right-radius: 5px;
         border-top-left-radius: 5px;
         
