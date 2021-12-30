@@ -245,7 +245,7 @@ if (isset($_SESSION['sessnid']) == false) {
         </div>
         <div data-aos-anchor="#midcont" data-aos-duration="1700" data-aos-easing="ease-in-quad" data-aos="flip-left" class="card">
 
-          <a href="stuexamview.php" class="stuicons">
+          <a href="examportal.php" class="stuicons">
           <i class="fas fa-user-edit"></i>
             <br>
             <h4>my exam</h4>
