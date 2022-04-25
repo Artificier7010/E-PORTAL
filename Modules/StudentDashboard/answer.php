@@ -1,4 +1,5 @@
 <?php
+include '../../db_conn.php';
 session_start();
 $sesnid=$_SESSION['sessnid'];
 
@@ -39,7 +40,7 @@ $qid=$_POST['k'];
 
 <?php
      $ans=$_POST['ans'];
-     $conn =mysqli_connect("localhost","id17345460_artificiers","Av@300303318014","id17345460_registration");
+     $conn =OpenCon();
      $sql3="INSERT INTO answer VALUES(
       NULL,'$qid','$ans','$sesnid'
     )";

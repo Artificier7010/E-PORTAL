@@ -226,10 +226,7 @@ if(isset($_SESSION['sessnid'])==false){
         height: 100px;
         display: flex;
         justify-content: center;
-       
         align-items: center;
-        
-        
     }
     .questionbtns button{
         height: 60px;
