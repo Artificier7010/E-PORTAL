@@ -8,7 +8,7 @@ $uid = $_SESSION['suser'];
 
 if (isset($_SESSION['sessnid']) == false) {
   echo '<script type="text/JavaScript"> 
-            window.location="index.php";
+            window.location="../../index.php";
             alert("login failed");
             </script>';
 }

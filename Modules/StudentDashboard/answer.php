@@ -12,7 +12,7 @@ $qid=$_POST['k'];
 
      
   // $connect =mysqli_connect("localhost","id17345460_artificiers","Av@300303318014","id17345460_registration");
-  $connect =mysqli_connect("localhost","root","","registration");
+  $connect = OpenCon();
 
   $sql2="SELECT * FROM questiontab WHERE id= $qid";
 

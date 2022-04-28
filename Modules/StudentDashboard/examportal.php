@@ -3,7 +3,7 @@ session_start();
 
 if(isset($_SESSION['sessnid'])==false){
   echo '<script type="text/JavaScript"> 
-            window.location="index.php";
+            window.location="../../index.php";
             alert("login failed");
             </script>';
 }
@@ -259,8 +259,8 @@ if(isset($_SESSION['sessnid'])==false){
     } 
     .showquestion .quest{
         width: 100%;
-        height: 100px;
-        font-size: 2.5em;
+        height: auto;
+        font-size: 1.5em;
         margin-left: 20px;
 
 
@@ -268,7 +268,7 @@ if(isset($_SESSION['sessnid'])==false){
     .showquestion .opts{
         width: 100%;
         height: auto;
-        
+        margin-top:20px;        
         font-size: 1.5em;
        
         
@@ -302,7 +302,7 @@ if(isset($_SESSION['sessnid'])==false){
         font-size: 1.8em;
         border-radius: 24px;
         box-shadow: 0 0 1rem 0 rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, .3);
+        background: rgba(173, 173, 173, .1);
         backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%) ;
         border: none;
         outline: none;

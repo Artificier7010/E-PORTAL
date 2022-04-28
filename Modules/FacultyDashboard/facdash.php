@@ -1,5 +1,6 @@
 <!-- category insertion  -->
 <?php
+include '../../db_conn.php';
 session_start();
 $facultyname = $_SESSION['facfirname'] . $_SESSION['faclasname'];
 
@@ -94,13 +95,15 @@ if (isset($_POST['date'])) {
   $branch = filter_input(INPUT_POST, 'branch', FILTER_SANITIZE_STRING);
   $sem = filter_input(INPUT_POST, 'sem', FILTER_SANITIZE_STRING);
   $sub = $_POST['sub'];
+  $type = $_POST['etype'];
 
 
-  $sql5 = "INSERT INTO shedtab VALUES(NULL,'$dat','$branch','$sem','$sub')";
+  $sql5 = "INSERT INTO shedtab VALUES(NULL,'$dat','$branch','$sem','$sub','$type')";
 
   $rs4 = mysqli_query($connect, $sql5);
 
   if ($rs4) {
+    echo "<script type='text/javascript'>alert('Exam Scheduled Successfully on $dat ')</script>";
   }
 }
 
@@ -1352,6 +1355,7 @@ if (isset($_POST['date'])) {
                   <option>8st Semester</option>
                 </select>
               </div>
+
               <div class="input-box">
                 <span class="details"> Subject</span>
                 <select name="sub">
@@ -1362,8 +1366,13 @@ if (isset($_POST['date'])) {
                     }
                   }
                   ?>
-
-
+                </select>
+              </div>
+              <div class="input-box">
+                <span class="details">Type</span>
+                <select name="etype">
+                  <option>MCQ</option>
+                  <option>Written</option>
                 </select>
               </div>
 
