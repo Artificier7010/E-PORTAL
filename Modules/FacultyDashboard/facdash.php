@@ -40,7 +40,7 @@ $anss = mysqli_query($connect, $sql2);
 <!-- User Attendence details Data -->
 <?php
 
-$attsql = "SELECT * FROM regist WHERE chekin='checked'";
+$attsql = "SELECT * FROM regist";
 
 $attdet = mysqli_query($connect, $attsql);
 

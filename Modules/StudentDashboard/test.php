@@ -61,7 +61,7 @@ if (isset($_SESSION['sessnid']) == false) {
     }
 
     .logo-txt {
-      width: 150px;
+      width: 500px;
       height: 50px;
       display: flex;
       justify-content: space-between;
@@ -120,14 +120,19 @@ if (isset($_SESSION['sessnid']) == false) {
       color: black;
       margin: 20px;
       box-shadow: 0px 2px 18px -4px rgba(0, 0, 0, 0.75);
+      border-radius:10px;
+      transition:1s ease;
+
     }
 
-    .card:nth-child(2) {
-      background: #FFF;
+    .card:hover{
+      transform:scale(1.1);
+      background: #ffb47f;
+      color:black;
+      transition:1s ease;
     }
-
-    .card:last-child {
-      background: #FFF;
+    .card:hover > .stuicons > h4{
+      color:black;
     }
 
     .card-title {
@@ -175,7 +180,7 @@ if (isset($_SESSION['sessnid']) == false) {
     }
 
     .stuhead {
-      margin-left: 10%;
+      margin: 0;
       font-weight: bold;
     }
 
@@ -213,7 +218,7 @@ if (isset($_SESSION['sessnid']) == false) {
     <div class="head-cont">
       <div class="logo-txt">
         <img src="../../Assets/lightbglogo.png" alt="">
-        <h1>Wiscore</h1>
+        <h1>Wiscore</h1><h3 class="stuhead">>  Student Dashboard</h3>
       </div>
       <a href="./../../logout.php" class="btnlogout"><i class="fas fa-sign-out-alt"></i> </a>
     </div>
@@ -222,7 +227,7 @@ if (isset($_SESSION['sessnid']) == false) {
     <br>
     <div id="midcont" class="midcont">
 
-      <h3 class="stuhead">Student Dashboard</h3>
+   
 
       <!-- <hr> -->
       <br>
@@ -240,7 +245,7 @@ if (isset($_SESSION['sessnid']) == false) {
         <a  href="preresults.php" class="stuicons">
             <i class="fas fa-poll"></i>
             <br>
-            <h4>Previous results</h4>
+            <h4>Previous Results</h4>
           </a>
         </div>
         <div data-aos-anchor="#midcont" data-aos-duration="1700" data-aos-easing="ease-in-quad" data-aos="flip-left" class="card">
@@ -248,7 +253,7 @@ if (isset($_SESSION['sessnid']) == false) {
           <a href="examportal.php" class="stuicons">
           <i class="fas fa-user-edit"></i>
             <br>
-            <h4>my exam</h4>
+            <h4>My Exam</h4>
           </a>
         </div>
       

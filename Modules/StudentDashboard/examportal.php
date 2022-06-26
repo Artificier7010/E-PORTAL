@@ -179,10 +179,6 @@ if(isset($_SESSION['sessnid'])==false){
         top: 0;
         left: 0;
         z-index: 3;
-
-
-
-
     }
     .backinner{
             width: 100%;

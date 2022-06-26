@@ -15,14 +15,14 @@
     $branch = filter_input(INPUT_POST, 'branch', FILTER_SANITIZE_STRING);
     $sem = filter_input(INPUT_POST, 'sem', FILTER_SANITIZE_STRING);
 
-    $sql="INSERT INTO regist VALUES(
+    echo $sql="INSERT INTO regist VALUES(
        NULL ,'$firstname','$lastname','$branch','$sem','$mobileno','$password'
     )";
 
     if(mysqli_query($conn,$sql)){
       echo '<script type="text/javascript">
       confirm("Do you want to register for exam ?");
-      window.location.href="/index.php"
+      window.location.href="../index.php"
       </script>';
     // echo '<script type="text/javascript">
     //   alert("worked");

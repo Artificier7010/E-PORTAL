@@ -5,14 +5,12 @@ function OpenCon()
  $dbuser = "root";
  $dbpass = "";
  $db = "registration";
- $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
- 
+ $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s \n ");
+
  return $conn;
  }
- 
-function CloseCon($conn)
- {
- $conn -> close();
+ function CloseCon($conn){
+     mysqli_close($conn);
  }
-   
-?>
+
+ ?>

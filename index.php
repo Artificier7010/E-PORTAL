@@ -1085,7 +1085,8 @@ would be placed ahead of the other menu icons with*/
 
     if (isset($_POST['suname'])) {
         // $conn =mysqli_connect("localhost","id17345460_artificiers","Av@300303318014","id17345460_registration");
-        $conn = mysqli_connect("localhost", "root", "", "registration");
+        // $conn = mysqli_connect("localhost", "root", "", "registration");
+        $conn=OpenCon();
         $stuusrname = $_POST['suname'];
 
         $stupass = $_POST['spass'];
